@@ -1,6 +1,6 @@
 # Multi Docker Compose Networking
 
-This repo demonstrates how can services running in different docker-compose configs, attached to the same docker network, can communicate with each other while exposing required ports to the host machine.
+This repo demonstrates how services running in different docker-compose configs, attached to the same docker network, can communicate with each other while exposing required ports to the host machine.
 
 This configuration can serve as an example to run backend services in a docker-compose file & SSR web applications in a separate docker-compose file.
 
@@ -56,7 +56,7 @@ demo-frontend-client-1  | [ client ] Waiting 10s for next request...
 <details>
 <summary>Click to expand</summary>
 
-Both server and client `docker-compose.yml` add the services to the `multi-compose-net` network.
+Both server and client `docker-compose.yml` add their services to the `multi-compose-net` network.
 
 ```yml
 version: '3.8'
@@ -70,7 +70,7 @@ default:
     external: true
 ```
 
-The server `docker-compose.yml` sets an explicit hostname for the api service.
+(optional) The server `docker-compose.yml` sets an explicit hostname for the api service.
 
 ```diff
 version: '3.8'
@@ -93,7 +93,7 @@ networks:
     # blabla
 ```
 
-The client `docker-compose.yml` sets the exact same hostname in the target URL to send the requests to.
+The client `docker-compose.yml`, via an environment variable,sets the exact same hostname in the target URL to send the requests to.
 
 ```diff
 version: '3.8'
@@ -167,7 +167,7 @@ Output:
 ]
 ```
 
-That is what makes possible the communication.
+That is what makes the communication possible.
 </details>
 
 ## What about the web browser side of the SSR web app?
