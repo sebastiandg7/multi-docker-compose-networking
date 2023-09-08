@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      - API_BASE_URL=http://demo-server-api:8080
+      - REQUEST_INTERVAL=10000
+    command: ['node', 'client.mjs']
+
+networks:
+  default:
+    name: multi-compose-net
+    external: true
