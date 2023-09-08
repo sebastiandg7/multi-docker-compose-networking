@@ -93,7 +93,7 @@ networks:
     # blabla
 ```
 
-The client `docker-compose.yml`, via an environment variable,sets the exact same hostname in the target URL to send the requests to.
+The client `docker-compose.yml`, via an environment variable, sets the exact same hostname in the target URL to send the requests to.
 
 ```diff
 version: '3.8'
